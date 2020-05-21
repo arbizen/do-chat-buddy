@@ -7,7 +7,7 @@ router.delete('/chat', (res, req) => {
     Message.deleteMany({}).then(occur => console.log('Deleted'));
 });
 
-router.get('/chat', async (req, res) => {
+router.get('/', async (req, res) => {
     const data = await Message.find();
     res.json(data);
 });
