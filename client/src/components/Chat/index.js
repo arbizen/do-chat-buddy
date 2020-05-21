@@ -31,7 +31,7 @@ const Chat = ({ location }) => {
 
         // get data
         const getData = async () => {
-            const res = await axios.get('/');
+            const res = await axios.get(HOST);
             const main = await res.data;
             setDatas(main);
         }
