@@ -5,6 +5,7 @@ const assert = require('assert');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+require('dotenv').config();
 
 
 app.use(bodyParser.json());
@@ -14,7 +15,7 @@ app.use(cors());
 
 // mongoose connection
 
-const URL = require('./config/url');
+const URL = process.env.URL;
 
 mongoose.connect(URL, {useUnifiedTopology: true, useNewUrlParser: true});
 
