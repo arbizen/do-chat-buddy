@@ -38,6 +38,10 @@ if (process.env.NODE_ENV) {
 
 const PORT = process.env.PORT || 5000;
 
+const router = require('./routers/router');
+
+app.use(router);
+
 const server = app.listen(PORT, () => console.log('Sever created successfully'));
 const io = require('socket.io')(server);
 
@@ -46,7 +50,3 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('fromServer', msg);
     });
 });
-
-const router = require('./routers/router');
-
-app.use(router);
