@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
+const mongodb = require('mongodb');
 const assert = require('assert');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -18,18 +18,11 @@ app.use(cors());
 
 const URL = process.env.URL;
 
-console.log(URL);
+const MongoClient = mongodb.MongoClient;
 
-mongoose.connect(URL, {useUnifiedTopology: true, useNewUrlParser: true});
-
-const db = mongoose.connection;
-
-// handle error
-db.on('error', (err) => console.log(err));
-
-// connection successfulld
-db.once('open', () => {
-    console.log('Conncection successfull');
+MongoClient.connect(URL, (err, db) => {
+    if (err) console.log('Something went wrong. Error: ' + err);
+    console.log('Connected succesfully');
 });
 
 if (process.env.NODE_ENV === 'production') {
