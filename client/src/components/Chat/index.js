@@ -11,7 +11,7 @@ import Sender from '../others/Sender';
 
 const Chat = ({ location }) => {
     const ENDPOINT = 'https://do-chat-buddy.herokuapp.com/';
-    const HOST = 'chat/';
+    const HOST = 'do-chat-buddy.herokuapp.com/chat';
     const [name, setName] = useState('');
     const [datas, setDatas] = useState([]);
     const [message, setMessage] = useState('');
