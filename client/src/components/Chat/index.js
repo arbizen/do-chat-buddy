@@ -36,7 +36,7 @@ const Chat = ({ location }) => {
             setDatas(main);
         }
 
-        //getData(); // get data from mongodb
+        getData(); // get data from mongodb
 
     }, []);
 
@@ -55,7 +55,7 @@ const Chat = ({ location }) => {
         setDatas([...datas, {name, message}]);
 
         // post a data in monogdb
-        //axios.post(HOST, {name, message});
+        axios.post(HOST, {name, message});
         input.value = '';
         setMessage('');
     }
