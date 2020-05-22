@@ -18,6 +18,8 @@ app.use(cors());
 
 const URL = process.env.URL;
 
+console.log(URL);
+
 mongoose.connect(URL, {useUnifiedTopology: true, useNewUrlParser: true});
 
 const db = mongoose.connection;
