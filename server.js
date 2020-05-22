@@ -29,7 +29,7 @@ db.once('open', () => {
     console.log('Conncection successfull');
 });
 
-if (process.env.NODE_ENV) {
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     //app.get('*', (res, req) => {
         //res.sendFile(paht.resolve(__dirname, 'client', 'build', 'index.html'));
