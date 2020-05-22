@@ -8,8 +8,12 @@ router.delete('/chat', (res, req) => {
 });
 
 router.get('/chat', async (req, res) => {
-    const data = await Message.find();
-    res.json(data);
+    try {
+        const data = await Message.find();
+        res.json(data);
+    } catch (err) {
+        console.log('Error: ' + err);
+    }
 });
 
 router.post('/chat', (req, res) => {
